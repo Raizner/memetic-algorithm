@@ -190,7 +190,15 @@
 					>
 				</File>
 				<File
+					RelativePath=".\Elements\Chromosome_Binary.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\Elements\Chromosome_Binary.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Elements\Chromosome_Real.cpp"
 					>
 				</File>
 				<File
@@ -337,7 +345,15 @@
 						>
 					</File>
 					<File
+						RelativePath=".\Operators\Mutations\Mutation_BitFlip.cpp"
+						>
+					</File>
+					<File
 						RelativePath=".\Operators\Mutations\Mutation_BitFlip.h"
+						>
+					</File>
+					<File
+						RelativePath=".\Operators\Mutations\Mutation_Gaussian.cpp"
 						>
 					</File>
 					<File
@@ -378,6 +394,10 @@
 					>
 					<File
 						RelativePath=".\Operators\Scalings\Scaling.h"
+						>
+					</File>
+					<File
+						RelativePath=".\Operators\Scalings\Scaling_Linear.cpp"
 						>
 					</File>
 					<File
