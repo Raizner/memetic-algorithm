@@ -274,16 +274,17 @@ void MemeticAlgorithm<T>::evolve(unsigned int nGenerations)
 			vector<int> v = getLSIndividuals();
 			for(unsigned j=0; j<v.size(); j++)
 			{
-				cout << -gs->pop[v[j]]->fitness << " --> ";
+				//cout << -gs->pop[v[j]]->fitness << " --> ";
 				vector<double> ch = gs->pop[v[j]]->toDoubleVector();
-				cout << ls->search(ch) << " == ";
+				//cout << ls->search(ch) << " == ";
+				ls->search(ch);
 
 				// if lamarckian learning then copy back
 				if (maLearningStrategy == maLSLamarckian) gs->pop[v[j]]->fromDoubleVector(ch);	
 				
 				gs->pop[v[j]]->fitness = gs->evaluate(ch);
 
-				cout << -gs->pop[v[j]]->fitness << endl;
+				//cout << -gs->pop[v[j]]->fitness << endl;
 			}
 		}
 	}
