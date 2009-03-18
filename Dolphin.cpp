@@ -143,7 +143,7 @@ void testMA()
 	unsigned int i, j;
 
 	//ObjectiveFunction* f = new FSchwefel102(30);
-	ObjectiveFunction* f = new FRastrigin(30);
+	ObjectiveFunction* f = new FAckley(30);
 	//ObjectiveFunction* f = new FSchwefel102Noisy(30);
 
 	for(i=0; i<f->nDimensions(); i++)
@@ -194,7 +194,7 @@ void testMA()
 	Population<double> pop;
 
 
-	for(i=0; i<20; i++)
+	for(i=0; i<50; i++)
 	{
 		vector<double> indv;
 		for(j=0; j<f->nDimensions(); j++)
@@ -224,16 +224,17 @@ void testMA()
 
 	LocalSearch* ls1 = new LocalSearch_DSCG(f);
 	LocalSearch* ls2 = new LocalSearch_DFP(f);
-	ls1->stepLength = vector<double>(f->nDimensions(), 0.9);
+	ls1->stepLength = vector<double>(f->nDimensions(), 1.0);
 	ls2->stepLength = vector<double>(f->nDimensions(), 0.7);
 
 
 	//ma.lsPool.push_back(ls1);
 	//ma.lsPool.push_back(ls2);
 	ma.ls = ls1;
+	ls1->evaluationLimit = 300;
 	
-	ma.pLS = 1.0;
-	ma.maSelectionStrategy = ma.maLSBest;	
+	ma.pLS = 0.1;
+	ma.maSelectionStrategy = ma.maLSBest;
 	//ma.maLearningStrategy = ma.maLSBaldwinian;
 	ma.maLearningStrategy = ma.maLSLamarckian;
 
