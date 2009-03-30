@@ -617,6 +617,14 @@
 					RelativePath=".\LocalSearches\LocalSearch_DSCG.h"
 					>
 				</File>
+				<File
+					RelativePath=".\LocalSearches\LocalSearch_ES.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\LocalSearches\LocalSearch_ES.h"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="MemeticAlgorithms"
