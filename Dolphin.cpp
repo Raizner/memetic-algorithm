@@ -25,8 +25,8 @@ using namespace std;
 
 void testLS()
 {
-	ObjectiveFunction* f = new FAckley(3, -100, 100);
-	vector<double> v(3, 4.0);
+	ObjectiveFunction* f = new FSphere(2, -100, 100);
+	vector<double> v(2, 4.0);
 
 	/*
 	for(v[0] = -4; v[0] <= 4; v[0]+=2)
@@ -45,30 +45,30 @@ void testLS()
 
 
 	//LocalSearch_DFP ls(f);
-	LocalSearch_DSCG ls(f);
+	//LocalSearch_DSCG ls(f);
+	LocalSearch_ES ls(f);
 	ls.evaluationLimit = 100000;
-	ls.stepLength = vector<double>(3, 0.9);
+	//ls.stepLength = vector<double>(2, 0.9);	
 	ls.accuracy = 1e-5;
 
 	int tmp = 0;
 	for(v[0] = -4; v[0] <= 4; v[0]+=2)
 	{
-		for(v[1] = -4; v[1] <= 4; v[1]+=2)
-			for(v[2] = -4; v[2] <= 4; v[2]+=2)
-			{
-				tmp++;
-				//v[0] = -4;
-				//v[1] = 2;
-				//v[2] = 4;
-				vector<double> v2 = v;
-				//cout << tmp << ": (" << v[0] << "," << v[1] << " " << v[2] << ") - " << (*f)(v) << " --> ";
-				//cout << tmp << ": (" << v[0] << "," << v[1] << ") - " << (*f)(v) << " --> ";
-				printf("%.12lf\n", (*f)(v));
-				//f->nEvaluations = 0;
-				double res = ls(v2);
-				//cout << "(" << v2[0] << " " << v2[1] << " " << v2[2] << ") - " << res << " " << f->nEvaluations << endl;	
-				printf("%.12lf\n", res);
-			}
+		for(v[1] = -4; v[1] <= 4; v[1]+=2)			
+		{
+			tmp++;
+			//v[0] = -4;
+			//v[1] = 2;
+			//v[2] = 4;
+			vector<double> v2 = v;
+			//cout << tmp << ": (" << v[0] << "," << v[1] << " " << v[2] << ") - " << (*f)(v) << " --> ";
+			//cout << tmp << ": (" << v[0] << "," << v[1] << ") - " << (*f)(v) << " --> ";
+			printf("%.12lf\n", (*f)(v));
+			//f->nEvaluations = 0;
+			double res = ls(v2);
+			//cout << "(" << v2[0] << " " << v2[1] << " " << v2[2] << ") - " << res << " " << f->nEvaluations << endl;	
+			printf("%.12lf\n", res);
+		}
 	}
 }
 
@@ -224,14 +224,15 @@ void testMA()
 
 	LocalSearch* ls1 = new LocalSearch_DSCG(f);
 	LocalSearch* ls2 = new LocalSearch_DFP(f);
+	LocalSearch* ls3 = new LocalSearch_ES(f);
 	ls1->stepLength = vector<double>(f->nDimensions(), 1.0);
 	ls2->stepLength = vector<double>(f->nDimensions(), 0.7);
 
 
 	//ma.lsPool.push_back(ls1);
 	//ma.lsPool.push_back(ls2);
-	ma.ls = ls1;
-	ls1->evaluationLimit = 300;
+	ma.ls = ls3;
+	ls3->evaluationLimit = 300;
 	
 	ma.pLS = 0.1;
 	ma.maSelectionStrategy = ma.maLSBest;
