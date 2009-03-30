@@ -31,7 +31,7 @@ ObjectiveFunctions/FFMS.o ObjectiveFunctions/FWeierstrass.o ObjectiveFunctions/F
 Rng/Bernoulli.o Rng/Binomial.o Rng/Cauchy.o Rng/DiffGeometric.o Rng/DiscreteUniform.o Rng/Erlang.o Rng/Geometric.o Rng/GlobalRng.o Rng/HyperGeometric.o Rng/LogNormal.o Rng/NegExponential.o Rng/Normal.o Rng/Poisson.o Rng/Rng.o Rng/Uniform.o Rng/Weibull.o Rng/ihs.o \
 Elements/Chromosome_Binary.o Elements/Chromosome_Real.o \
 Operators/Mutations/Mutation_Gaussian.o Operators/Mutations/Mutation_BitFlip.o Operators/Scalings/Scaling_Linear.o \
-LocalSearches/LocalSearch.o LocalSearches/LocalSearch_DSCG.o LocalSearches/LocalSearch_DFP.o \
+LocalSearches/LocalSearch.o LocalSearches/LocalSearch_DSCG.o LocalSearches/LocalSearch_DFP.o LocalSearches/LocalSearch_ES.o \
 MemeticAlgorithms/MALamarcBaldwin.o \
 
 
