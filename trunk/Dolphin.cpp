@@ -25,9 +25,10 @@ using namespace std;
 
 void testLS()
 {
-	ObjectiveFunction* f = new FSphere(2, -100, 100);
-	vector<double> v(2, 4.0);
+	ObjectiveFunction* f = new FSphere(100, -100, 100);
+	vector<double> v(f->nDimensions(), 4.0);
 
+	for(int i=0; i<f->nDimensions()-1; i++) v[i] = 0;
 	/*
 	for(v[0] = -4; v[0] <= 4; v[0]+=2)
 		for(v[1] = -4; v[1] <= 4; v[1]+=2)
@@ -47,11 +48,21 @@ void testLS()
 	//LocalSearch_DFP ls(f);
 	//LocalSearch_DSCG ls(f);
 	LocalSearch_ES ls(f);
-	ls.evaluationLimit = 100000;
+	ls.evaluationLimit = 10000;
 	//ls.stepLength = vector<double>(2, 0.9);	
 	ls.accuracy = 1e-5;
+	
+	//cout << tmp << ": (" << v[0] << "," << v[1] << " " << v[2] << ") - " << (*f)(v) << " --> ";
+	//cout << tmp << ": (" << v[0] << "," << v[1] << ") - " << (*f)(v) << " --> ";
+	printf("%.12lf --> ", (*f)(v));
+	//f->nEvaluations = 0;
+	double res = ls(v);
+	//cout << "(" << v2[0] << " " << v2[1] << " " << v2[2] << ") - " << res << " " << f->nEvaluations << endl;	
+	printf("%.12lf\n", res);
 
+	/*
 	int tmp = 0;
+	
 	for(v[0] = -4; v[0] <= 4; v[0]+=2)
 	{
 		for(v[1] = -4; v[1] <= 4; v[1]+=2)			
@@ -63,13 +74,14 @@ void testLS()
 			vector<double> v2 = v;
 			//cout << tmp << ": (" << v[0] << "," << v[1] << " " << v[2] << ") - " << (*f)(v) << " --> ";
 			//cout << tmp << ": (" << v[0] << "," << v[1] << ") - " << (*f)(v) << " --> ";
-			printf("%.12lf\n", (*f)(v));
+			printf("%.12lf --> ", (*f)(v));
 			//f->nEvaluations = 0;
 			double res = ls(v2);
 			//cout << "(" << v2[0] << " " << v2[1] << " " << v2[2] << ") - " << res << " " << f->nEvaluations << endl;	
 			printf("%.12lf\n", res);
 		}
 	}
+	*/
 }
 
 void testGA()
@@ -143,7 +155,7 @@ void testMA()
 	unsigned int i, j;
 
 	//ObjectiveFunction* f = new FSchwefel102(30);
-	ObjectiveFunction* f = new FAckley(30);
+	ObjectiveFunction* f = new FAckley(100);
 	//ObjectiveFunction* f = new FSchwefel102Noisy(30);
 
 	for(i=0; i<f->nDimensions(); i++)
@@ -225,13 +237,13 @@ void testMA()
 	LocalSearch* ls1 = new LocalSearch_DSCG(f);
 	LocalSearch* ls2 = new LocalSearch_DFP(f);
 	LocalSearch* ls3 = new LocalSearch_ES(f);
-	ls1->stepLength = vector<double>(f->nDimensions(), 1.0);
+	ls1->stepLength = vector<double>(f->nDimensions(), 0.7);
 	ls2->stepLength = vector<double>(f->nDimensions(), 0.7);
 
 
 	//ma.lsPool.push_back(ls1);
 	//ma.lsPool.push_back(ls2);
-	ma.ls = ls3;
+	ma.ls = ls1;
 	ls3->evaluationLimit = 300;
 	
 	ma.pLS = 0.1;
@@ -325,7 +337,7 @@ void testMALamaBald()
 int main(int argc, char* argv[])
 {
 	Rng::seed((long)time(NULL));
-
+	
 	int option = 0;
 	if (argc == 1)
 	{
