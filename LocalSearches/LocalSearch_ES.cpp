@@ -31,7 +31,7 @@ double LocalSearch_ES::search(vector<double>& x)
 {
 	unsigned evalCount = 0;
 
-	vector<double> xtmp, xbest = x;
+	vector<double> xtmp(x.size()), xbest = x;
 	double fx = evaluate(x), fbest = fx, ftmp;
 	int nGood = 0, nBad = 0;
 	while(evalCount < evaluationLimit)
