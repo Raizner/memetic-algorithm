@@ -29,6 +29,7 @@ public:
 
 	int lambda; /* number of offspring */
 	double sigma; /* mutation strength */
+	double multiplier; /* used in 1/5 rule */
 private:	
 };
 

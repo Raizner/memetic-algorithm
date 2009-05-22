@@ -259,6 +259,9 @@ double ObjectiveFunction::evaluate( vector<double>& x )
 			}
 		}
 	}
+
+	// recording
+	if (statModule != NULL) statModule->addEntry(nEvaluations, x, res);
 	
 	return res;
 }

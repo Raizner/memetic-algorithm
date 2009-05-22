@@ -578,7 +578,11 @@
 				Name="EvolutionaryAlgorithms"
 				>
 				<File
-					RelativePath=".\EvolutionaryAlgorithms\DifferentialEvolution.h"
+					RelativePath=".\EvolutionaryAlgorithms\CMAES.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\EvolutionaryAlgorithms\CMAES.h"
 					>
 				</File>
 				<File
@@ -663,6 +667,18 @@
 				</File>
 				<File
 					RelativePath=".\Includes\Operators.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Utilities"
+				>
+				<File
+					RelativePath=".\Utilities\Statistics.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Utilities\Statistics.h"
 					>
 				</File>
 			</Filter>
