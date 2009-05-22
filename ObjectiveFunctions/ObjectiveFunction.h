@@ -7,6 +7,7 @@
 #define _ObjectiveFunction_H_
 
 #include "../Global.h"
+#include "../Utilities/Statistics.h"
 
 /*!
  * \brief
@@ -65,6 +66,8 @@ public:
 	double operator()( vector<double>& x );
 	double evaluate(vector<double>& x);
 	vector<double> gradient(vector<double>& x);
+
+	Statistics* statModule;
 
 protected:
 	virtual double evaluate_( vector<double>& x );

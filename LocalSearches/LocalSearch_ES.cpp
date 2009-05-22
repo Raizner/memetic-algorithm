@@ -69,15 +69,17 @@ double LocalSearch_ES::search(vector<double>& x)
 			nGood = nBad = 0;
 		}
 
-		if (evalCount % lambda == 0 || evalCount == evaluationLimit)
+		// every lambda points, we should update the x once
+		if (evalCount % lambda == 0 || evalCount == evaluationLimit || fbest < this->accuracy)
 		{
 			if (fbest < fx)
 			{
 				x = xbest;
 				fx = fbest;
 			}
-		}
 
+			if (fx < this->accuracy) break;
+		}
 	}
 	
 	return fx;
