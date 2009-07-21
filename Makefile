@@ -32,6 +32,7 @@ Rng/Bernoulli.o Rng/Binomial.o Rng/Cauchy.o Rng/DiffGeometric.o Rng/DiscreteUnif
 Elements/Chromosome_Binary.o Elements/Chromosome_Real.o \
 Operators/Mutations/Mutation_Gaussian.o Operators/Mutations/Mutation_BitFlip.o Operators/Scalings/Scaling_Linear.o \
 LocalSearches/LocalSearch.o LocalSearches/LocalSearch_DSCG.o LocalSearches/LocalSearch_DFP.o LocalSearches/LocalSearch_ES.o \
+Utilities/Statistics.o \
 MemeticAlgorithms/MALamarcBaldwin.o \
 
 

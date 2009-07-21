@@ -83,6 +83,7 @@ void ObjectiveFunction::initialize()
 	bestSol.resize(nDim);
 
 	translationVector.assign(nDim, 0.0);
+	noiseLevel = 0;
 }
 /*********************************************************/
 /* Evaluating					                         */
@@ -188,9 +189,10 @@ vector<double> ObjectiveFunction::gradient_(vector<double>& x)
  * \see
  * ObjectiveFunction::gradient
  */
+
+
 vector<double> ObjectiveFunction::finiteDifference(vector<double>& x)
 {
-	// to be implemented later
 	return vector<double>(x.size(), 0.0);
 }
 
@@ -233,6 +235,8 @@ double ObjectiveFunction::evaluate( vector<double>& x )
 	}
 
 	double res = evaluate_(xtmp);
+	// enable noise
+	res *= (1.0 + noiseLevel * fabs(Rng::gauss()));
 
 	// update the best
 	if (nEvaluations == 1) 
@@ -286,5 +290,21 @@ bool ObjectiveFunction::isMaximizing()
  */
 vector<double> ObjectiveFunction::gradient(vector<double>& x)
 {
-	return this->gradient_(x);
+	// increase the number of evaluations by the number of dimensions
+        nEvaluations += nDim;
+
+	// translate it first
+        vector<double> xtmp(x);
+        for(unsigned i=0; i<nDim; i++)
+        {
+                xtmp[i] -= translationVector[i];
+        }
+	
+
+	vector<double> res = this->gradient_(xtmp);
+
+	// enable noise
+	for(int i=0; i<nDim; i++) { res[i] *= (1.0 +  noiseLevel * fabs(Rng::gauss()));  }
+	
+	return res;
 }

@@ -8,8 +8,9 @@
 
 LocalSearch_ES::LocalSearch_ES( ObjectiveFunction *f) : LocalSearch( f )
 {
+
 	lambda = f->nDimensions();
-	sigma = 1.0;
+	sigma = 1.0/sqrt(1.0*f->nDimensions());
 }
 
 LocalSearch_ES::~LocalSearch_ES()
@@ -33,9 +34,16 @@ double LocalSearch_ES::search(vector<double>& x)
 
 	vector<double> xtmp(x.size()), xbest = x;
 	double fx = evaluate(x), fbest = fx, ftmp;
-	int nGood = 0, nBad = 0;
+	int nGood = 0, nBad = 0, restart = 0;
 	while(evalCount < evaluationLimit)
 	{
+		if (sigma < 1e-5) 
+		{ 
+			sigma = 1.0 / sqrt(1.0 * fObj->nDimensions()); 
+			restart++; 
+			if (restart > 3) break;
+		}
+		
 		// each iteration we generate lambda offspring
 		// every n offspring (n = number of dimension), we check the adaptation rule
 		for(unsigned i=0; i<fObj->nDimensions(); i++)
@@ -65,7 +73,7 @@ double LocalSearch_ES::search(vector<double>& x)
 		// 1/5 adaptive rule
 		if (nGood + nBad == fObj->nDimensions())
 		{
-			if (nGood >= 0.2 * fObj->nDimensions()) sigma*=2; else sigma/=2;
+			if (nGood >= 0.2 * fObj->nDimensions()) sigma/=0.85; else sigma*=0.85;
 			nGood = nBad = 0;
 		}
 
