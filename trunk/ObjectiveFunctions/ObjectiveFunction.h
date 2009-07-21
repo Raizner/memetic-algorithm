@@ -8,6 +8,7 @@
 
 #include "../Global.h"
 #include "../Utilities/Statistics.h"
+#include "../Rng/GlobalRng.h"
 
 /*!
  * \brief
@@ -28,6 +29,10 @@ protected:
 	double bestEval;			/* best evaluation value */
 	vector<double> bestSol;    /* best solution so far */
 
+// output file
+	string fout;
+
+
 //methods
 public:
 	int minimaxi;				/* nature of function: minimizing = -1 maximizing = +1 */
@@ -42,6 +47,7 @@ public:
 	{
 		return "Objective Function base class";
 	}
+
 	virtual const string classname()
 	{
 		return "";
@@ -59,6 +65,7 @@ public:
 public:
 	unsigned int nEvaluations; /* number of evaluations */	
 	vector<double> translationVector;
+	double noiseLevel; /* gaussian noise applied to the fitness value: f = f*(1.0 + |N(0,1)|*noiseLevel) */
 
 	vector<double> lowerBounds;		/* lower bound vector */
 	vector<double> upperBounds;		/* upper bound vector */
@@ -67,6 +74,7 @@ public:
 	double evaluate(vector<double>& x);
 	vector<double> gradient(vector<double>& x);
 
+	string outputFile;
 	Statistics* statModule;
 
 protected:

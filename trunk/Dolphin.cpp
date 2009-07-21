@@ -21,114 +21,89 @@
 #include "MemeticAlgorithms/MAMetaLamarckian.h"
 #include "MemeticAlgorithms/MALamarcBaldwin.h"
 
-#include "EvolutionaryAlgorithms/CMAES.h"
-
 #include "Utilities/Statistics.h"
-
+#include <sys/time.h>
 using namespace std;
 
-/* the objective (fitness) function to be minized */
-double fitfun(double const *x, int N) { /* function "cigtab" */
-  int i; 
-  double sum = 1e4*x[0]*x[0] + 1e-4*x[1]*x[1];
-  for(i = 2; i < N; ++i)  
-    sum += x[i]*x[i]; 
-  return sum;
-}
-
-void testES()
+long long printtime()
 {
-	CMAES::cmaes_t evo; /* an CMA-ES type struct or "object" */
-  double *arFunvals, *const*pop, *xfinal;
-  int i; 
+   struct timeval tv;
+   struct timezone tz;
+   struct tm *tm;
+   gettimeofday(&tv, &tz);
+   tm=localtime(&tv.tv_sec);
 
-  CMAES cma;
-  /* Initialize everything into the struct evo, 0 means default */
-  arFunvals = cma.cmaes_init(&evo, 0, NULL, NULL, 0, 0, "initials.par"); 
-  printf("%s\n", cma.cmaes_SayHello(&evo));
-  cma.cmaes_ReadSignals(&evo, "signals.par");  /* write header and initial values */
+   long long result = (((tm->tm_hour*60)+tm->tm_min)*60+tm->tm_sec)*1000000 + tv.tv_usec;
 
-  /* Iterate until stop criterion holds */
-  while(!cma.cmaes_TestForTermination(&evo))
-    { 
-      /* generate lambda new search points, sample population */
-      pop = cma.cmaes_SamplePopulation(&evo); /* do not change content of pop */
-
-      /* Here you may resample each solution point pop[i] until it
-	 becomes feasible, e.g. for box constraints (variable
-	 boundaries). function is_feasible(...) needs to be
-	 user-defined.  
-	 Assumptions: the feasible domain is convex, the optimum is
-	 not on (or very close to) the domain boundary, initialX is
-	 feasible and initialStandardDeviations are sufficiently small
-	 to prevent quasi-infinite looping.
-      */
-      /* for (i = 0; i < cmaes_Get(&evo, "popsize"); ++i) 
-	   while (!is_feasible(pop[i])) 
-	     cmaes_ReSampleSingle(&evo, i); 
-      */
-
-      /* evaluate the new search points using fitfun from above */ 
-      for (i = 0; i < cma.cmaes_Get(&evo, "lambda"); ++i) {
-			arFunvals[i] = fitfun(pop[i], (int) cma.cmaes_Get(&evo, "dim"));
-      }
-
-      /* update the search distribution used for cmaes_SampleDistribution() */
-      cma.cmaes_UpdateDistribution(&evo, arFunvals);  
-
-      /* read instructions for printing output or changing termination conditions */ 
-      cma.cmaes_ReadSignals(&evo, "signals.par");   
-      fflush(stdout); /* useful in MinGW */
-    }
-  printf("Stop:\n%s\n",  cma.cmaes_TestForTermination(&evo)); /* print termination reason */
-  cma.cmaes_WriteToFile(&evo, "all", "allcmaes.dat");         /* write final results */
-
-  /* get best estimator for the optimum, xmean */
-  xfinal = cma.cmaes_GetNew(&evo, "xmean"); /* "xbestever" might be used as well */
-  cma.cmaes_exit(&evo); /* release memory */ 
-
-  /* do something with final solution and finally release memory */
-  free(xfinal);   
+   return result;
 }
 
 void testLS()
 {	
 	string filename;
 	Statistics s;
+	long long t1, t2;
+	int sum, count;
+	for(double noise=0.1; noise<1.01; noise+=0.1)
+	{
+		cout << "Noise = " << noise << endl;
 	for(int mul = 1; mul < 1000; mul*=10)
 	{
 		for(int ndim = 2; ndim<=10; ndim++)
 		{
 			cout << "Runing on " << ndim*mul << " dimensions...";
+
 			ObjectiveFunction* f = new FSphere(ndim*mul, -100, 100);
 			f->statModule = &s;
+			f->noiseLevel = noise;
+			
+		        for(int i=0; i<f->nDimensions(); i++)
+		        {
+		                f->translationVector[i] = Rng::uni();
+		        }
+
+			cout << "Test value: " << f->evaluate(f->translationVector) << endl;
 			vector<double> v(f->nDimensions());
 
-			LocalSearch_ES ls(f);
-			ls.evaluationLimit = 100000;
-			ls.accuracy = 1e-5;
-			
-			for(int samples = 0; samples < 100; samples++)
+			LocalSearch_DSCG ls(f);
+			ls.evaluationLimit = 100000000;
+			ls.accuracy = 0.1;
+			//ls.lambda = 50;
+			for(int i=0; i<f->nDimensions(); i++) ls.stepLength[i] = 0.5;
+			t1 = printtime();
+			sum = 0;
+			count = 0;
+			for(int samples = 0; samples < 50; samples++)
 			{
 				ostringstream oss;
-				oss << "D:/HUYNQ/Works/My papers/Gecco 2009/Data/Sphere/ES/output_" << ndim*mul << "_" << samples;
+				oss << "/home/quanghuy/Output/Sphere/DSCG/output_" << ndim*mul << "_" << noise << "_" << samples;
+			//	oss << "ES/output_" << ndim*mul << "_" << noise;
+				f->nEvaluations = 0;
 				s.startRecording(oss.str().c_str());
-				for(int i=0; i<f->nDimensions()-1; i++) v[i] = Rng::uni(-100, 100);
+				double multiplier = 1;
+				for(int i=0; i<f->nDimensions(); i++) { v[i] = f->translationVector[i] + multiplier / sqrt(1.0*ndim*mul); multiplier *= -1; }
+
+				//cout << "Local search: " << f->evaluate(v) << " ---> ";
 				//printf("%.12lf --> ", (*f)(v));
 				double res = ls(v);
 				//printf("%.12lf\n", res);
 				s.stopRecording();
+				if (res < 0.1) { sum+=f->nEvaluations; count++; }
+//				cout << res << endl;
 			}
-			
+			cout << "@@@ " << noise << " " << ndim*mul << " " << count << " " << 1.0*sum/count << endl;
+			t2 = printtime();
 			delete f;
-			cout << endl;
+			cout << "Time: " << t2-t1 << endl;
+			if (count == 0) break;
 		}
+		if (count == 0) break;
+	}
 	}
 }
 
 void testGA()
 {
-	
 	unsigned int i, j;
 
 	//ObjectiveFunction* f = new FSchwefel102(30);
@@ -197,7 +172,9 @@ void testMA()
 	unsigned int i, j;
 
 	//ObjectiveFunction* f = new FSchwefel102(30);
-	ObjectiveFunction* f = new FScaffer(30, -100, 100);
+	//ObjectiveFunction* f = new FRosenbrock(100);
+	ObjectiveFunction* f = new FSphere(100);
+//	ObjectiveFunction* f = new FScaffer(30, -100, 100);
 	//ObjectiveFunction* f = new FSchwefel102Noisy(30);
 
 	for(i=0; i<f->nDimensions(); i++)
@@ -209,7 +186,7 @@ void testMA()
 	cout << "Translation vector:" << endl;
 	for(i=0; i<f->nDimensions(); i++)
 	{
-//		f->translationVector[i] = Rng::uni();
+		f->translationVector[i] = Rng::uni();
 		cout << f->translationVector[i] << " ";
 	}
 	cout << endl;
@@ -285,6 +262,8 @@ void testMA()
 
 	//ma.lsPool.push_back(ls1);
 	//ma.lsPool.push_back(ls2);
+	ma.ls = ls2;
+	ma.ls->evaluationLimit = 10000;
 	ma.ls = ls1;
 	ls1->evaluationLimit = 1000;
 	//ls3->evaluationLimit = 300;
@@ -381,9 +360,6 @@ int main(int argc, char* argv[])
 {
 	Rng::seed((long)time(NULL));
 
-	//testES();
-	testLS();
-	return 0;
 	int option = 0;
 	if (argc == 1)
 	{

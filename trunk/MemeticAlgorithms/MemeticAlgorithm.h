@@ -271,6 +271,7 @@ void MemeticAlgorithm<T>::evolve(unsigned int nGenerations)
 		if (ls != NULL)
 		{
 			
+			int nevaltmp = gs->fObj->nEvaluations;
 			vector<int> v = getLSIndividuals();
 			for(unsigned j=0; j<v.size(); j++)
 			{
@@ -286,6 +287,7 @@ void MemeticAlgorithm<T>::evolve(unsigned int nGenerations)
 
 				//cout << -gs->pop[v[j]]->fitness << endl;
 			}
+			cout << "LS: " << v.size() << " times -> " << gs->fObj->nEvaluations - nevaltmp << " evals. " << endl;
 		}
 	}
 }
