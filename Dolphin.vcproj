@@ -578,11 +578,7 @@
 				Name="EvolutionaryAlgorithms"
 				>
 				<File
-					RelativePath=".\EvolutionaryAlgorithms\CMAES.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\EvolutionaryAlgorithms\CMAES.h"
+					RelativePath=".\EvolutionaryAlgorithms\CellularGA.h"
 					>
 				</File>
 				<File
@@ -633,6 +629,10 @@
 			<Filter
 				Name="MemeticAlgorithms"
 				>
+				<File
+					RelativePath=".\MemeticAlgorithms\CellularMA.h"
+					>
+				</File>
 				<File
 					RelativePath=".\MemeticAlgorithms\MALamarcBaldwin.cpp"
 					>

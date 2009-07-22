@@ -18,24 +18,28 @@
 #include "Elements/Chromosome_Real.h"
 
 #include "MemeticAlgorithms/MemeticAlgorithm.h"
+#include "MemeticAlgorithms/CellularMA.h"
 #include "MemeticAlgorithms/MAMetaLamarckian.h"
 #include "MemeticAlgorithms/MALamarcBaldwin.h"
 
 #include "Utilities/Statistics.h"
-#include <sys/time.h>
 using namespace std;
 
 long long printtime()
 {
-   struct timeval tv;
-   struct timezone tz;
-   struct tm *tm;
-   gettimeofday(&tv, &tz);
-   tm=localtime(&tv.tv_sec);
+	/*
+	struct timeval tv;
+	struct timezone tz;
+	struct tm *tm;
+	gettimeofday(&tv, &tz);
+	tm=localtime(&tv.tv_sec);
 
-   long long result = (((tm->tm_hour*60)+tm->tm_min)*60+tm->tm_sec)*1000000 + tv.tv_usec;
+	long long result = (((tm->tm_hour*60)+tm->tm_min)*60+tm->tm_sec)*1000000 + tv.tv_usec;
 
-   return result;
+
+	return result;
+	*/
+	return 0;
 }
 
 void testLS()
@@ -107,7 +111,7 @@ void testGA()
 	unsigned int i, j;
 
 	//ObjectiveFunction* f = new FSchwefel102(30);
-	ObjectiveFunction* f = new FRastrigin(30);
+	ObjectiveFunction* f = new FRastrigin(10);
 	//ObjectiveFunction* f = new FSchwefel102Noisy(30);
 
 	for(i=0; i<f->nDimensions(); i++)
@@ -131,7 +135,7 @@ void testGA()
 	Population<double> pop;
 
 
-	for(i=0; i<20; i++)
+	for(i=0; i<50; i++)
 	{
 		vector<double> indv;
 		for(j=0; j<f->nDimensions(); j++)
@@ -156,7 +160,7 @@ void testGA()
 	while(f->nEvaluations < f->nDimensions() * 10000)
 	{					
 		ga.evolve();
-		//	if (ma.nGenerations() % 50 == 0)
+		if (ga.nGenerations() % 50 == 0)
 		{
 			cout << f->nEvaluations << " evals: " << f->bestEvaluation() << endl;
 		}
@@ -356,30 +360,106 @@ void testMALamaBald()
 
 }
 
+
+
+void testCGA()
+{
+	unsigned int i;	
+	ObjectiveFunction* f = new FRastrigin(10);	
+
+	for(i=0; i<f->nDimensions(); i++)
+	{
+//		f->upperBounds[i] = 100.0 - 2*i;
+//		f->lowerBounds[i] = -100.0 + 2*i;
+	}
+
+	cout << "Translation vector:" << endl;
+	for(i=0; i<f->nDimensions(); i++)
+	{
+		f->translationVector[i] = Rng::uni();
+		cout << f->translationVector[i] << " ";
+	}
+	cout << endl;
+
+	cout << "Test evaluation: " << (*f)(f->translationVector) << endl;
+
+	f->nEvaluations = 0;	
+	
+	Mutation<double>* mut = new Mutation_Gaussian(0.1);		
+	Crossover<double>* crs = new Crossover_Uniform<double>(0.8);	
+	
+	CellularGA cga(2, 2, f, mut, crs);
+
+	while(f->nEvaluations < f->nDimensions() * 10000)
+	{					
+		cga.evolve();
+		if (cga.nGenerations() % 50 == 0)
+		{
+			cout << f->nEvaluations << " evals: " << f->bestEvaluation() << endl;
+		}
+	}
+
+	cout << "Best solution so far: " << endl;
+	for(unsigned int j=0; j<f->bestSolution().size(); j++) cout << f->bestSolution()[j] << " ";
+	cout << endl << "Fitness: " << f->bestEvaluation() << endl;
+}
+
+void testCMA()
+{
+	unsigned int i;	
+	ObjectiveFunction* f = new FRosenbrock(30);	
+
+	for(i=0; i<f->nDimensions(); i++)
+	{
+//		f->upperBounds[i] = 100.0 - 2*i;
+//		f->lowerBounds[i] = -100.0 + 2*i;
+	}
+
+	cout << "Translation vector:" << endl;
+	for(i=0; i<f->nDimensions(); i++)
+	{
+		f->translationVector[i] = Rng::uni();
+		cout << f->translationVector[i] << " ";
+	}
+	cout << endl;
+
+	cout << "Test evaluation: " << (*f)(f->translationVector) << endl;
+
+	f->nEvaluations = 0;	
+	
+	Mutation<double>* mut = new Mutation_Gaussian(0.1);		
+	Crossover<double>* crs = new Crossover_Uniform<double>(0.8);	
+	
+	CellularGA* cga = new CellularGA(10, 10, f, mut, crs);
+
+	CellularMA cma(cga);
+	//MAMetaLamarckian<double> ma(ga);
+
+	LocalSearch* ls1 = new LocalSearch_DSCG(f);	
+	ls1->stepLength = vector<double>(f->nDimensions(), 1.0);
+		
+	cma.ls = ls1;
+	cma.ls->evaluationLimit = 300;		
+	cma.pLS = 0.1;	
+
+	cma.maxEvaluations = 300000;
+	while(!cma.done())
+	{					
+		cma.evolve();
+		//	if (ma.nGenerations() % 50 == 0)
+		{
+			cout << f->nEvaluations << " evals: " << f->bestEvaluation() << endl;
+		}
+	}
+
+	cout << "Best solution so far: " << endl;
+	for(unsigned int j=0; j<f->bestSolution().size(); j++) cout << f->bestSolution()[j] << " ";
+	cout << endl << "Fitness: " << f->bestEvaluation() << endl;
+}
+
 int main(int argc, char* argv[])
 {
-	Rng::seed((long)time(NULL));
-
-	int option = 0;
-	if (argc == 1)
-	{
-		cout << argv[0] << " GA|MA|MA2|MS" << endl;
-	}
-	else
-	{
-		if (strcmp(argv[1], "MA") == 0) option = 0;
-		else if (strcmp(argv[1], "MA2") == 0) option = 1;
-		else if (strcmp(argv[1], "MS") == 0) option = 2;
-		else if (strcmp(argv[1], "GA") == 0) option = 3;
-	}
-
-	switch(option)
-	{
-		case 0: testMA(); break;		
-		case 1: testMALamaBald(); break;
-		case 2: testLS(); break;
-		case 3: testGA(); break;
-	}
+	testCMA();
 	return 0;
 }
 
