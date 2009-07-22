@@ -78,6 +78,7 @@ ObjectiveFunction::~ObjectiveFunction()
 
 void ObjectiveFunction::initialize()
 {
+	statModule = NULL;
 	nEvaluations = 0;
 	bestEval = 0;
 	bestSol.resize(nDim);
@@ -291,16 +292,15 @@ bool ObjectiveFunction::isMaximizing()
 vector<double> ObjectiveFunction::gradient(vector<double>& x)
 {
 	// increase the number of evaluations by the number of dimensions
-        nEvaluations += nDim;
+	nEvaluations += nDim;
 
 	// translate it first
-        vector<double> xtmp(x);
-        for(unsigned i=0; i<nDim; i++)
-        {
-                xtmp[i] -= translationVector[i];
-        }
+	vector<double> xtmp(x);
+	for(int i=0; i<nDim; i++)
+	{
+			xtmp[i] -= translationVector[i];
+	}
 	
-
 	vector<double> res = this->gradient_(xtmp);
 
 	// enable noise

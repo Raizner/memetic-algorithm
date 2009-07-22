@@ -6,3 +6,4 @@
 
 #include "EvolutionaryAlgorithms/GlobalSearch.h"
 #include "EvolutionaryAlgorithms/GeneticAlgorithm.h"
+#include "EvolutionaryAlgorithms/CellularGA.h"

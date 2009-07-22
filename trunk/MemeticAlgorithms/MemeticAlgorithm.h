@@ -38,9 +38,10 @@ public:
 	 *
 	 * Best: individuals with best fitnesses are selected.
 	 * Stratified: individuals are selected so as to maintain highest diversity.
+	 * FitnessStratified: divide the population fitness range into equal subranges and pick one individual in each subrange.
 	 * Random: individuals are selected randomly.
 	 */
-	typedef enum {maLSBest, maLSStratified, maLSRandom} MA_SELECTION_STRATEGY;
+	typedef enum {maLSBest, maLSStratified, maLSRandom, maLSFitnessStratified} MA_SELECTION_STRATEGY;
 	typedef enum {maLSLamarckian, maLSBaldwinian} MA_LEARNING_STRATEGY;
 	int nGenerations();
 	bool done();
@@ -107,7 +108,7 @@ public:
 	unsigned int maxGenerations;
 protected:
 	vector<int> getLSIndividuals();	
-	virtual void initialize();
+	void initialize();
 };
 
 

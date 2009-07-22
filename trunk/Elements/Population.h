@@ -61,6 +61,15 @@ public:
 	{ 
 	}
 
+	virtual Population* clone()
+	{
+		Population* p = new Population();
+		for(unsigned i = 0; i < this->size(); i++)
+		{
+			p->push_back(this->at(i)->clone());
+		}
+		return p;
+	}
 	
 	/*!
 	 * \brief

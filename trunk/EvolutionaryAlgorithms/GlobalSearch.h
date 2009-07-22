@@ -31,10 +31,10 @@
 template<typename T> 
 class GlobalSearch
 {
-public:		
+public:
 	GlobalSearch();
 	~GlobalSearch() { }
-	virtual void evolve(unsigned int nGenerations = 1) { }
+	virtual void evolve(unsigned int nGeneration = 1) { nGen += nGeneration; }
 	unsigned nGenerations();
 	double evaluate(vector<double>& x);
 	double bestEvaluation();

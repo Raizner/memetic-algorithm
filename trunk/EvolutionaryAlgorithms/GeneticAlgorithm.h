@@ -32,7 +32,7 @@ public:
 	GeneticAlgorithm(Population<T> population, ObjectiveFunction* objectiveFunction, Mutation<T>* mutationOperator,
 						Crossover<T>* crossoverOperator, Selection<T>* selectionScheme, Recombination<T>* recombinationScheme);
 	~GeneticAlgorithm() { }
-	virtual void evolve(unsigned int nGenerations = 1);
+	virtual void evolve(unsigned int nGeneration = 1);
 
 public:
 	Mutation<T>* mutation;
@@ -96,11 +96,13 @@ mutation(mutationOperator), crossover(crossoverOperator), selection(selectionSch
  * Number of generation to evolve.
  */
 template<typename T>
-void GeneticAlgorithm<T>::evolve(unsigned int nGenerations)
+void GeneticAlgorithm<T>::evolve(unsigned int nGeneration)
 {
 	unsigned int i, j;
 
-	for(i=0; i<nGenerations; i++)
+	GlobalSearch::evolve(nGeneration);
+
+	for(i=0; i<nGeneration; i++)
 	{
 		this->nGen++;
 
