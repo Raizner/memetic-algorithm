@@ -30,7 +30,7 @@ class MemeticAlgorithm {
 public:	
 	MemeticAlgorithm();
 	MemeticAlgorithm(GlobalSearch<T>* globalSearch, LocalSearch* localSearch = NULL);
-	void evolve(unsigned int nGenerations = 1);
+	void evolve(unsigned int nGeneration = 1);
 	
 	/*!
 	 * \brief
@@ -241,18 +241,18 @@ vector<int> MemeticAlgorithm<T>::getLSIndividuals()
  * \brief
  * Evolving algorithm
  * 
- * \param nGenerations
+ * \param nGeneration
  * Number of generation to evolve.
  *
  * Typically, one of more generations of global search is followed by an individual learning phase.
  *  
  */
 template<typename T>
-void MemeticAlgorithm<T>::evolve(unsigned int nGenerations)
+void MemeticAlgorithm<T>::evolve(unsigned int nGeneration)
 {
 	if (ls != NULL) ls->evaluationLimit = tLS;
 
-	for(unsigned int i=0; i<nGenerations; i++)
+	for(unsigned int i=0; i<nGeneration; i++)
 	{
 		/*for(unsigned j=0; j<gs->pop.size(); j++)
 		{

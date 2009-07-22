@@ -578,6 +578,10 @@
 				Name="EvolutionaryAlgorithms"
 				>
 				<File
+					RelativePath=".\EvolutionaryAlgorithms\CellularGA.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\EvolutionaryAlgorithms\CellularGA.h"
 					>
 				</File>
@@ -629,6 +633,10 @@
 			<Filter
 				Name="MemeticAlgorithms"
 				>
+				<File
+					RelativePath=".\MemeticAlgorithms\CellularMA.cpp"
+					>
+				</File>
 				<File
 					RelativePath=".\MemeticAlgorithms\CellularMA.h"
 					>

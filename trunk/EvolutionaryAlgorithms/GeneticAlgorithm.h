@@ -92,7 +92,7 @@ mutation(mutationOperator), crossover(crossoverOperator), selection(selectionSch
  * \brief
  * Evolving algorithm
  * 
- * \param nGenerations
+ * \param nGeneration
  * Number of generation to evolve.
  */
 template<typename T>
@@ -100,7 +100,7 @@ void GeneticAlgorithm<T>::evolve(unsigned int nGeneration)
 {
 	unsigned int i, j;
 
-	GlobalSearch::evolve(nGeneration);
+	GlobalSearch<T>::evolve(nGeneration);
 
 	for(i=0; i<nGeneration; i++)
 	{
