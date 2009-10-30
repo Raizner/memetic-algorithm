@@ -6,15 +6,15 @@
 
 #include "FBump.h"
 
-FBump::FBump( int nDimensions ):ObjectiveFunction( -1, nDimensions, 0, 10)
+FBump::FBump( int nDimensions ):ObjectiveFunction(1, nDimensions, 0, 10)
 {
 }
 
-FBump::FBump( int nDimensions, double lowerBound, double upperBound ):ObjectiveFunction( -1, nDimensions, lowerBound, upperBound)
+FBump::FBump( int nDimensions, double lowerBound, double upperBound ):ObjectiveFunction(1, nDimensions, lowerBound, upperBound)
 {
 }
 
-FBump::FBump( int nDimensions, vector<double>& lowerBounds, vector<double>& upperBounds ):ObjectiveFunction( -1, nDimensions, lowerBounds, upperBounds)
+FBump::FBump( int nDimensions, vector<double>& lowerBounds, vector<double>& upperBounds ):ObjectiveFunction(1, nDimensions, lowerBounds, upperBounds)
 {
 }
 
@@ -32,7 +32,7 @@ double FBump::evaluate_( vector<double>& x )
 		prodx *= x[i];
 	}
 
-	if ((sumx >= 7.5 * nDim) || (prodx <= 0.75)) return -32767; // penalty
+	if ((sumx >= 7.5 * nDim) || (prodx <= 0.75)) return 0; // penalty
 
 
 	double sumc4=0, prodc2=1, sumixi2=0;
