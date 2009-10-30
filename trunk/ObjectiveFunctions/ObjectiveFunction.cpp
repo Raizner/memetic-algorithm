@@ -225,7 +225,7 @@ double ObjectiveFunction::evaluate( vector<double>& x )
 	// increase the number of evaluations
 	nEvaluations++;
 	// bound checking
-	if (!isInBound(x)) return INT_MAX;
+	if (!isInBound(x)) return INT_MIN * minimaxi;
 
 	// everything's ok, let's evaluate the fitness of x
 	// translate it first

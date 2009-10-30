@@ -27,6 +27,20 @@
 <p>
 <code>#include &lt;RandomVar.h&gt;</code>
 <p>
+<div class="dynheader">
+Inheritance diagram for RandomVar&lt; T &gt;:</div>
+<div class="dynsection">
+<p><center><img src="class_random_var__inherit__graph.png" border="0" usemap="#_random_var_3_01_t_01_4__inherit__map" alt="Inheritance graph"></center>
+<map name="_random_var_3_01_t_01_4__inherit__map">
+<area shape="rect" id="node3" href="class_random_var.html" title="{RandomVar\&lt; long \&gt;\n|# rng\l# monteCarloTrials\l|+ ~RandomVar()\l+ operator()()\l+ p()\l+ seed()\l+ operator=()\l+ entropy()\l+ KullbackLeibler()\l+ logLikelihood()\l+ setMonteCarlo()\l# RandomVar()\l}" alt="" coords="324,313,460,554"><area shape="rect" id="node15" href="class_random_var.html" title="{RandomVar\&lt; double \&gt;\n|# rng\l# monteCarloTrials\l|+ ~RandomVar()\l+ operator()()\l+ p()\l+ seed()\l+ operator=()\l+ entropy()\l+ KullbackLeibler()\l+ logLikelihood()\l+ setMonteCarlo()\l# RandomVar()\l}" alt="" coords="976,313,1128,554"><area shape="rect" id="node33" href="class_random_var.html" title="{RandomVar\&lt; bool \&gt;\n|# rng\l# monteCarloTrials\l|+ ~RandomVar()\l+ operator()()\l+ p()\l+ seed()\l+ operator=()\l+ entropy()\l+ KullbackLeibler()\l+ logLikelihood()\l+ setMonteCarlo()\l# RandomVar()\l}" alt="" coords="1316,313,1452,554"><area shape="rect" id="node5" href="class_binomial.html" title="This class simulates a &quot;Binomial distribution&quot;." alt="" coords="5,606,160,895"><area shape="rect" id="node7" href="class_discrete_uniform.html" title="This class simulates a &quot;uniform distribution&quot; with integer numbers." alt="" coords="184,638,317,863"><area shape="rect" id="node9" href="class_geometric.html" title="This class simulates a &quot;%Geometric distribution&quot;." alt="" coords="341,662,443,839"><area shape="rect" id="node13" href="class_poisson.html" title="This class simulates a &quot;%Poisson distribution&quot;." alt="" coords="467,662,563,839"><area shape="rect" id="node11" href="class_diff_geometric.html" title="This class simulates a &quot;Differential %Geometric distribution&quot;." alt="" coords="332,995,452,1141"><area shape="rect" id="node17" href="class_cauchy.html" title="This class simulates a &quot;standard %Cauchy distribution&quot;." alt="" coords="587,686,683,815"><area shape="rect" id="node19" href="class_erlang.html" title="This class simulates an &quot;%Erlang distribution&quot;." alt="" coords="707,614,803,887"><area shape="rect" id="node21" href="class_hyper_geometric.html" title="This class simulates a &quot;Hyper %Geometric distribution&quot;." alt="" coords="827,630,963,871"><area shape="rect" id="node23" href="class_neg_exponential.html" title="This class simulates a &quot;negative exponential distribution&quot;." alt="" coords="987,662,1117,839"><area shape="rect" id="node25" href="class_normal.html" title="This class simulates a &quot;normal&quot; distribution." alt="" coords="1141,614,1237,887"><area shape="rect" id="node29" href="class_uniform.html" title="This class simulates a &quot;uniform distribution&quot;." alt="" coords="1261,638,1357,863"><area shape="rect" id="node31" href="class_weibull.html" title="This class simulates a &quot;%Weibull distribution&quot;." alt="" coords="1381,630,1477,871"><area shape="rect" id="node27" href="class_log_normal.html" title="This class simulates a &quot;Log %Normal distribution&quot;." alt="" coords="1137,947,1241,1189"><area shape="rect" id="node35" href="class_bernoulli.html" title="This class simulates a &quot;Bernoulli trial&quot;, which is like a coin toss." alt="" coords="1501,662,1597,839"></map>
+<center><font size="2">[<a target="top" href="graph_legend.html">legend</a>]</font></center></div>
+<div class="dynheader">
+Collaboration diagram for RandomVar&lt; T &gt;:</div>
+<div class="dynsection">
+<p><center><img src="class_random_var__coll__graph.png" border="0" usemap="#_random_var_3_01_t_01_4__coll__map" alt="Collaboration graph"></center>
+<map name="_random_var_3_01_t_01_4__coll__map">
+<area shape="rect" id="node2" href="class_r_n_g.html" title="This class defines a generator for uniformally distributed pseudo random numbers..." alt="" coords="19,6,120,311"></map>
+<center><font size="2">[<a target="top" href="graph_legend.html">legend</a>]</font></center></div>
 
 <p>
 <a href="class_random_var-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
@@ -161,6 +175,15 @@ Returns the probability of the occurrence of the random number value given as pa
  This method is purely virtual and must be overloaded in the derived classes, because the probability of the parameter depends on the type of distribution given by the type of random number generator used. 
 <p>Implemented in <a class="el" href="class_bernoulli.html#8604182638cdfee326dee59b652073ba">Bernoulli</a>, <a class="el" href="class_binomial.html#d611bb00addb0cbac56c782604e37e92">Binomial</a>, <a class="el" href="class_cauchy.html#051ffbc1ebfa277ff40b66a3558c0d79">Cauchy</a>, <a class="el" href="class_diff_geometric.html#b9a62ac4c5a9184b14218c00a056646a">DiffGeometric</a>, <a class="el" href="class_discrete_uniform.html#a0f4c9b9ec8d6afa9643122609ebcbc5">DiscreteUniform</a>, <a class="el" href="class_erlang.html#66bc3d47eff5e944d93922aa005c8564">Erlang</a>, <a class="el" href="class_geometric.html#c45093c143a2165181873c4a8ed6bcc3">Geometric</a>, <a class="el" href="class_hyper_geometric.html#d5df0fad9b13979148e037691e7934dc">HyperGeometric</a>, <a class="el" href="class_log_normal.html#12c263e70353f1652580fa6391e263ea">LogNormal</a>, <a class="el" href="class_neg_exponential.html#55f9a2d06da2a265540f844f8b613b73">NegExponential</a>, <a class="el" href="class_normal.html#e3a82bb16cc6ae8fee968877b6d88254">Normal</a>, <a class="el" href="class_poisson.html#2f233ffa5abcd96ab2584ac59833d839">Poisson</a>, <a class="el" href="class_uniform.html#dd9cbf36599fed0730d50e82865d6fb2">Uniform</a>, and <a class="el" href="class_weibull.html#d7acfd5b1dd55d1c2219a4bda92ffde0">Weibull</a>.</p>
 
+<p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_random_var_d414ac30fe36ed99b78b485c3d8d1142_icgraph.png" border="0" usemap="#class_random_var_d414ac30fe36ed99b78b485c3d8d1142_icgraph_map" alt=""></center>
+<map name="class_random_var_d414ac30fe36ed99b78b485c3d8d1142_icgraph_map">
+<area shape="rect" id="node3" href="class_random_var.html#c0a4157414e50ab2439072f848c37c76" title="For a distribution &quot;p&quot; given by the currently used random number generator..." alt="" coords="181,5,368,33"><area shape="rect" id="node5" href="class_random_var.html#0d1d716b7bc81618f231ebb24e3d158f" title="Calculates the Kullback&#45;Leibler distance for the two distributions given by the type..." alt="" coords="159,55,391,83"><area shape="rect" id="node7" href="class_random_var.html#f15697f1d9b123d1747615589def0971" title="Calculate the log likelihood of the values in &quot;x&quot;." alt="" coords="165,106,384,134"></map>
+</div>
+
 </div>
 </div><p>
 <a class="anchor" name="6d933864f8fd523da5a8852f38c3b0f5"></a><!-- doxytag: member="RandomVar::seed" ref="6d933864f8fd523da5a8852f38c3b0f5" args="(long s)" -->
@@ -197,6 +220,15 @@ The pseudo random number generator as defined in class <a class="el" href="class
 <dl class="user" compact><dt><b>Status</b></dt><dd>stable </dd></dl>
 
 <p>Reimplemented in <a class="el" href="class_normal.html#9389ff77312715b8209dc9617647a4b2">Normal</a>.</p>
+
+<p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dynsection">
+<p><center><img src="class_random_var_6d933864f8fd523da5a8852f38c3b0f5_icgraph.png" border="0" usemap="#class_random_var_6d933864f8fd523da5a8852f38c3b0f5_icgraph_map" alt=""></center>
+<map name="class_random_var_6d933864f8fd523da5a8852f38c3b0f5_icgraph_map">
+<area shape="rect" id="node3" href="class_normal.html#9389ff77312715b8209dc9617647a4b2" title="Initializes the pseudo random number generator used by this class with value &quot;s&quot;..." alt="" coords="179,5,277,33"><area shape="rect" id="node5" href="class_rng.html#2a8d19be7ab61cbce7866e8b72847c42" title="Sets the seed for all random number generators to &quot;s&quot;." alt="" coords="325,30,405,58"></map>
+</div>
 
 </div>
 </div><p>
@@ -420,7 +452,7 @@ The number of Monte Carlo Trials used for defining a distribution. For details s
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>D:/HUYNQ/Works/Codes/MAP/Rng/<a class="el" href="_random_var_8h.html">RandomVar.h</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Jul 22 13:54:32 2009 for Dolphin by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Aug 20 10:06:05 2009 for Dolphin by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.6 </small></address>
 </body>
