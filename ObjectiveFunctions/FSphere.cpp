@@ -40,6 +40,7 @@ double FSphere::evaluate_( vector<double>& x )
 
 vector<double> FSphere::gradient_( vector<double>& x )
 {
+	//return finiteDifference(x);
 	vector<double> grad(x.size());
 	//<Manhtung>
 	//Rewrite later//
@@ -50,4 +51,5 @@ vector<double> FSphere::gradient_( vector<double>& x )
 	//</Manhtung>
 
 	return grad;
+	
 }

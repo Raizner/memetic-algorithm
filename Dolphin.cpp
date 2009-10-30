@@ -69,7 +69,8 @@ void testLS()
 			cout << "Test value: " << f->evaluate(f->translationVector) << endl;
 			vector<double> v(f->nDimensions());
 
-			LocalSearch_DSCG ls(f);
+			//LocalSearch_DSCG ls(f);
+			LocalSearch_DFP ls(f);
 			ls.evaluationLimit = 100000000;
 			ls.accuracy = 0.1;
 			//ls.lambda = 50;
@@ -466,9 +467,25 @@ void testCMA()
 	cout << endl << "Fitness: " << f->bestEvaluation() << endl;
 }
 
+void testDiff()
+{
+	FSphere f(10);
+	vector<double> x(10);
+	for(int i=0; i<10; i++) x[i] = i;
+	cout << f.evaluate(x) << endl;
+
+	vector<double> d(10);
+	d = f.gradient(x);
+	//d = f.finiteDifference(x);
+	for(int i=0; i<10; i++) cout << d[i] << " ";
+	cout << endl;
+}
+
 int main(int argc, char* argv[])
 {
 	testMA();
+	//testDiff();
+	//testLS();
 	return 0;
 }
 

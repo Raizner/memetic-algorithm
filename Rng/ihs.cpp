@@ -453,7 +453,6 @@ int get_seed ( void )
 {
 # define I_MAX 2147483647
   time_t clock;
-  int i;
   int ihour;
   int imin;
   int isec;

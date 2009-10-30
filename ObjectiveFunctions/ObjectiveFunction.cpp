@@ -192,9 +192,52 @@ vector<double> ObjectiveFunction::gradient_(vector<double>& x)
  */
 
 
-vector<double> ObjectiveFunction::finiteDifference(vector<double>& x)
+vector<double> ObjectiveFunction::finiteDifference(vector<double> &x)
 {
-	return vector<double>(x.size(), 0.0);
+	double eps = 1.0;	
+
+	// first we find the smallest eps we can handle
+	double one = 1.0;
+	double two = 2.0;
+	double test = 0.0;
+	do
+	{
+		eps = eps/two;
+		test = eps * one + one;
+	} while (test > 1.0);
+	eps = eps*two*two;	
+
+	// now let's go for the finite different	
+	vector<double> result(nDim, 0);
+	double fx = evaluate(x);
+
+	double delta, xi, udelta = 0, rsteps = sqrt(eps);
+
+	for(int i=0; i<nDim; i++) 
+	{
+		xi = x[i];
+		double tmp = 1.0;
+		if (fabs(xi) >= 1.0) tmp = fabs(xi);
+
+		if (udelta > rsteps * tmp)
+		{
+			delta = udelta;
+		}
+		else
+		{
+			delta = rsteps * tmp;
+		}
+
+		if (xi < 0) delta = -delta;
+
+		tmp = x[i];
+		x[i] += delta;
+		double ft = evaluate(x);
+		result[i] = (ft - fx) / delta;
+		x[i] = tmp;
+	}
+
+	return result;
 }
 
 /*!
