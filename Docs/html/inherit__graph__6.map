@@ -1,0 +1,4 @@
+<area shape="rect" id="node1" href="$class_local_search.html" title="The super class for local search methods." alt="" coords="5,55,99,83">
+<area shape="rect" id="node3" href="$class_local_search___d_f_p.html" title="Implement the Davidon&#45;Fletcher&#45;Powell Method." alt="" coords="153,5,279,33">
+<area shape="rect" id="node5" href="$class_local_search___d_s_c_g.html" title="Implement the strategy of Davis, Swan and Campey, with Gram&#45;Schmidt orthogonalization..." alt="" coords="148,55,284,83">
+<area shape="rect" id="node7" href="$class_local_search___e_s.html" title="Implement the (1+) Evolutionary Strategy with 1/5&#45;rule adaptation." alt="" coords="157,106,275,134">

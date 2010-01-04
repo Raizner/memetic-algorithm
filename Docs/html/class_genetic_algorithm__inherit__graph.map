@@ -1,0 +1,3 @@
+<area shape="rect" id="node5" href="$class_genetic_algorithm.html" title="{GeneticAlgorithm\&lt; double \&gt;\n|+ mutation\l+ crossover\l+ selection\l+ recombination\l|+ GeneticAlgorithm()\l+ GeneticAlgorithm()\l+ ~GeneticAlgorithm()\l+ evolve()\l}" alt="" coords="5,494,189,671">
+<area shape="rect" id="node7" href="$class_genetic_algorithm.html" title="{GeneticAlgorithm\&lt; bool \&gt;\n|+ mutation\l+ crossover\l+ selection\l+ recombination\l|+ GeneticAlgorithm()\l+ GeneticAlgorithm()\l+ ~GeneticAlgorithm()\l+ evolve()\l}" alt="" coords="213,494,381,671">
+<area shape="rect" id="node2" href="$class_global_search.html" title="The super class for population&#45;based search methods." alt="" coords="132,6,263,199">

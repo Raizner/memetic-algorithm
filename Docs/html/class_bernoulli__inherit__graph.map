@@ -1,0 +1,2 @@
+<area shape="rect" id="node2" href="$class_random_var.html" title="{RandomVar\&lt; bool \&gt;\n|# rng\l# monteCarloTrials\l|+ ~RandomVar()\l+ operator()()\l+ p()\l+ seed()\l+ operator=()\l+ entropy()\l+ KullbackLeibler()\l+ logLikelihood()\l+ setMonteCarlo()\l# RandomVar()\l}" alt="" coords="5,313,141,554">
+<area shape="rect" id="node4" href="$class_random_var.html" title="Template class used as base for all random number generators of library &quot;#Rng&quot;..." alt="" coords="9,6,137,247">

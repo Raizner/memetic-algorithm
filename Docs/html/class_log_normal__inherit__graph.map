@@ -1,0 +1,3 @@
+<area shape="rect" id="node2" href="$class_normal.html" title="This class simulates a &quot;normal&quot; distribution." alt="" coords="33,606,129,879">
+<area shape="rect" id="node4" href="$class_random_var.html" title="{RandomVar\&lt; double \&gt;\n|# rng\l# monteCarloTrials\l|+ ~RandomVar()\l+ operator()()\l+ p()\l+ seed()\l+ operator=()\l+ entropy()\l+ KullbackLeibler()\l+ logLikelihood()\l+ setMonteCarlo()\l# RandomVar()\l}" alt="" coords="5,313,157,554">
+<area shape="rect" id="node6" href="$class_random_var.html" title="Template class used as base for all random number generators of library &quot;#Rng&quot;..." alt="" coords="17,6,145,247">
