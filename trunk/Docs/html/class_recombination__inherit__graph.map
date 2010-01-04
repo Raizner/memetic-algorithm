@@ -1,0 +1,5 @@
+<area shape="rect" id="node3" href="$class_recombination___keep_best.html" title="Implementation of elitism recombination." alt="" coords="5,169,208,266">
+<area shape="rect" id="node5" href="$class_recombination___mu_comma_lambda.html" title="Implementation of mu comma lambda recombination." alt="" coords="232,169,485,266">
+<area shape="rect" id="node7" href="$class_recombination___mu_plus_lambda.html" title="Implementation of mu plus lambda recombination." alt="" coords="509,169,744,266">
+<area shape="rect" id="node9" href="$class_recombination.html" title="{Recombination\&lt; double \&gt;\n||+ operator()()\l+ recombine()\l}" alt="" coords="768,169,936,266">
+<area shape="rect" id="node11" href="$class_recombination.html" title="{Recombination\&lt; bool \&gt;\n||+ operator()()\l+ recombine()\l}" alt="" coords="960,169,1115,266">

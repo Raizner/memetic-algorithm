@@ -1,0 +1,4 @@
+<area shape="rect" id="node3" href="$class_chromosome.html" title="{Chromosome\&lt; double \&gt;\n|+ fitness\l+ upperBounds\l+ lowerBounds\l|+ Chromosome()\l+ Chromosome()\l+ Chromosome()\l+ Chromosome()\l+ fromDoubleVector()\l+ toDoubleVector()\l+ clone()\l+ operator\&lt;()\l+ toString()\l+ isInBound()\l}" alt="" coords="5,329,165,586">
+<area shape="rect" id="node7" href="$class_chromosome.html" title="{Chromosome\&lt; bool \&gt;\n|+ fitness\l+ upperBounds\l+ lowerBounds\l|+ Chromosome()\l+ Chromosome()\l+ Chromosome()\l+ Chromosome()\l+ fromDoubleVector()\l+ toDoubleVector()\l+ clone()\l+ operator\&lt;()\l+ toString()\l+ isInBound()\l}" alt="" coords="191,329,337,586">
+<area shape="rect" id="node5" href="$class_chromosome___real.html" title="Implement a real&#45;coded chromosome." alt="" coords="8,646,160,775">
+<area shape="rect" id="node9" href="$class_chromosome___binary.html" title="Implement a binary&#45;coded chromosome." alt="" coords="184,638,347,783">

@@ -1,0 +1,14 @@
+<area shape="rect" id="node3" href="$class_f_ackley.html" title="Implementation of the Ackley function. f(x) = &#45;20 * exp(&#45;0.2 * sqrt(sum{i = 1..n}(x(i)..." alt="" coords="5,689,109,882">
+<area shape="rect" id="node5" href="$class_f_bump.html" title="Implementation of the Bump function. f(x) = frac{abs(sum(cos(x_i)^4) &#45; 2prod(cos(x_i)^2))}{sqrt(sum{..." alt="" coords="133,689,237,882">
+<area shape="rect" id="node7" href="$class_f_elliptic.html" title="Implementation of the Elliptic function." alt="" coords="261,689,365,882">
+<area shape="rect" id="node9" href="$class_f_f_m_s.html" title="Implementation of the Frequency Modulation of Sound function. f(x) = &#45;20 * exp(&#45;0..." alt="" coords="389,681,496,890">
+<area shape="rect" id="node11" href="$class_f_griewank.html" title="Implementation of the Griewank function. f(x) = sum{i = 1..n}(x(i) ^ 2) / 4000 &#45;..." alt="" coords="520,689,632,882">
+<area shape="rect" id="node13" href="$class_f_griewank_rosenbrock.html" title="Implementation of the hybrid Griewank&#45;Rosenbrock function." alt="" coords="656,689,835,882">
+<area shape="rect" id="node15" href="$class_f_rastrigin.html" title="Implementation of the Rastrigin function. f(x) = sum{i = 1..n}(x(i) ^ 2 &#45; 10 * cos(2..." alt="" coords="859,689,965,882">
+<area shape="rect" id="node17" href="$class_f_rosenbrock.html" title="Implementation of the Rosenbrock function. f(x) = sum{i = 1..(n &#45; 1)}(100 * (x(i..." alt="" coords="989,689,1115,882">
+<area shape="rect" id="node19" href="$class_f_scaffer.html" title="Implementation of the Scaffer function." alt="" coords="1139,689,1243,882">
+<area shape="rect" id="node21" href="$class_f_schwefel102.html" title="Implementation of the Schwefel function 1.02." alt="" coords="1267,689,1397,882">
+<area shape="rect" id="node23" href="$class_f_schwefel102_noisy.html" title="Implementation of the Schwefel function 1.02 with Gaussian noise." alt="" coords="1421,601,1597,970">
+<area shape="rect" id="node25" href="$class_f_sphere.html" title="Implementation of the Sphere function. f(x) = sum{i = 1..n}(x(i) ^ 2)." alt="" coords="1621,689,1725,882">
+<area shape="rect" id="node27" href="$class_f_step.html" title="Implementation of the Step function. f(x) = 6n + \\sum_{i=1}^n \\floor{x_i}." alt="" coords="1749,689,1853,882">
+<area shape="rect" id="node29" href="$class_f_weierstrass.html" title="Implementation of the Weierstrass function. f(x) = sum{i = 1..n}(sum{j = 0..k}(a..." alt="" coords="1877,633,2005,938">

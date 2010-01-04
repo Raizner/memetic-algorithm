@@ -1,0 +1,4 @@
+<area shape="rect" id="node3" href="$class_crossover__n_point.html" title="Implementation of n&#45;point crossover (applicable for both binary/real&#45;coded)." alt="" coords="5,193,157,290">
+<area shape="rect" id="node5" href="$class_crossover___uniform.html" title="Implementation of uniform crossover (applicable for both binary/real&#45;coded)." alt="" coords="181,193,341,290">
+<area shape="rect" id="node7" href="$class_crossover.html" title="{Crossover\&lt; double \&gt;\n|# pCrossover\l|+ Crossover()\l+ operator()()\l+ cross()\l}" alt="" coords="365,185,504,298">
+<area shape="rect" id="node9" href="$class_crossover.html" title="{Crossover\&lt; bool \&gt;\n|# pCrossover\l|+ Crossover()\l+ operator()()\l+ cross()\l}" alt="" coords="528,185,653,298">

@@ -1,0 +1,17 @@
+<area shape="rect" id="node3" href="$class_random_var.html" title="{RandomVar\&lt; long \&gt;\n|# rng\l# monteCarloTrials\l|+ ~RandomVar()\l+ operator()()\l+ p()\l+ seed()\l+ operator=()\l+ entropy()\l+ KullbackLeibler()\l+ logLikelihood()\l+ setMonteCarlo()\l# RandomVar()\l}" alt="" coords="324,313,460,554">
+<area shape="rect" id="node15" href="$class_random_var.html" title="{RandomVar\&lt; double \&gt;\n|# rng\l# monteCarloTrials\l|+ ~RandomVar()\l+ operator()()\l+ p()\l+ seed()\l+ operator=()\l+ entropy()\l+ KullbackLeibler()\l+ logLikelihood()\l+ setMonteCarlo()\l# RandomVar()\l}" alt="" coords="976,313,1128,554">
+<area shape="rect" id="node33" href="$class_random_var.html" title="{RandomVar\&lt; bool \&gt;\n|# rng\l# monteCarloTrials\l|+ ~RandomVar()\l+ operator()()\l+ p()\l+ seed()\l+ operator=()\l+ entropy()\l+ KullbackLeibler()\l+ logLikelihood()\l+ setMonteCarlo()\l# RandomVar()\l}" alt="" coords="1316,313,1452,554">
+<area shape="rect" id="node5" href="$class_binomial.html" title="This class simulates a &quot;Binomial distribution&quot;." alt="" coords="5,606,160,895">
+<area shape="rect" id="node7" href="$class_discrete_uniform.html" title="This class simulates a &quot;uniform distribution&quot; with integer numbers." alt="" coords="184,638,317,863">
+<area shape="rect" id="node9" href="$class_geometric.html" title="This class simulates a &quot;%Geometric distribution&quot;." alt="" coords="341,662,443,839">
+<area shape="rect" id="node13" href="$class_poisson.html" title="This class simulates a &quot;%Poisson distribution&quot;." alt="" coords="467,662,563,839">
+<area shape="rect" id="node11" href="$class_diff_geometric.html" title="This class simulates a &quot;Differential %Geometric distribution&quot;." alt="" coords="332,995,452,1141">
+<area shape="rect" id="node17" href="$class_cauchy.html" title="This class simulates a &quot;standard %Cauchy distribution&quot;." alt="" coords="587,686,683,815">
+<area shape="rect" id="node19" href="$class_erlang.html" title="This class simulates an &quot;%Erlang distribution&quot;." alt="" coords="707,614,803,887">
+<area shape="rect" id="node21" href="$class_hyper_geometric.html" title="This class simulates a &quot;Hyper %Geometric distribution&quot;." alt="" coords="827,630,963,871">
+<area shape="rect" id="node23" href="$class_neg_exponential.html" title="This class simulates a &quot;negative exponential distribution&quot;." alt="" coords="987,662,1117,839">
+<area shape="rect" id="node25" href="$class_normal.html" title="This class simulates a &quot;normal&quot; distribution." alt="" coords="1141,614,1237,887">
+<area shape="rect" id="node29" href="$class_uniform.html" title="This class simulates a &quot;uniform distribution&quot;." alt="" coords="1261,638,1357,863">
+<area shape="rect" id="node31" href="$class_weibull.html" title="This class simulates a &quot;%Weibull distribution&quot;." alt="" coords="1381,630,1477,871">
+<area shape="rect" id="node27" href="$class_log_normal.html" title="This class simulates a &quot;Log %Normal distribution&quot;." alt="" coords="1137,947,1241,1189">
+<area shape="rect" id="node35" href="$class_bernoulli.html" title="This class simulates a &quot;Bernoulli trial&quot;, which is like a coin toss." alt="" coords="1501,662,1597,839">

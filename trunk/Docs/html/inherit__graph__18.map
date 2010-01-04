@@ -1,0 +1,6 @@
+<area shape="rect" id="node1" href="$class_random_var.html" title="RandomVar\&lt; long \&gt;" alt="" coords="7,81,143,109">
+<area shape="rect" id="node3" href="$class_binomial.html" title="This class simulates a &quot;Binomial distribution&quot;." alt="" coords="213,5,285,33">
+<area shape="rect" id="node5" href="$class_discrete_uniform.html" title="This class simulates a &quot;uniform distribution&quot; with integer numbers." alt="" coords="193,55,305,83">
+<area shape="rect" id="node7" href="$class_geometric.html" title="This class simulates a &quot;%Geometric distribution&quot;." alt="" coords="209,106,289,134">
+<area shape="rect" id="node11" href="$class_poisson.html" title="This class simulates a &quot;%Poisson distribution&quot;." alt="" coords="216,157,283,185">
+<area shape="rect" id="node9" href="$class_diff_geometric.html" title="This class simulates a &quot;Differential %Geometric distribution&quot;." alt="" coords="356,106,455,134">

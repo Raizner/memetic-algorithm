@@ -1,0 +1,2 @@
+<area shape="rect" id="node2" href="$class_chromosome.html" title="{Chromosome\&lt; bool \&gt;\n|+ fitness\l+ upperBounds\l+ lowerBounds\l|+ Chromosome()\l+ Chromosome()\l+ Chromosome()\l+ Chromosome()\l+ fromDoubleVector()\l+ toDoubleVector()\l+ clone()\l+ operator\&lt;()\l+ toString()\l+ isInBound()\l}" alt="" coords="13,329,160,586">
+<area shape="rect" id="node4" href="$class_chromosome.html" title="The super class for different type of chromosomes." alt="" coords="15,6,159,263">
