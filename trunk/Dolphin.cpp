@@ -1,5 +1,5 @@
 /*!
- * <File comment goes here!!>
+ * This is the main file, demostrating all the functionalities of the MAP
  * 
  * Copyright (c) 2008 by <Quang Huy / NTU>
  */
@@ -178,17 +178,11 @@ void testMA()
 
 	//ObjectiveFunction* f = new FSchwefel102(30);
 	//ObjectiveFunction* f = new FRosenbrock(100);
-	//ObjectiveFunction* f = new FSphere(100);
-	ObjectiveFunction* f = new FBump(20);
+	ObjectiveFunction* f = new FSphere(30);
+	//ObjectiveFunction* f = new FBump(20);
 //	ObjectiveFunction* f = new FScaffer(30, -100, 100);
 	//ObjectiveFunction* f = new FSchwefel102Noisy(30);
 
-	double test[] =  { 6.283185309654639, 3.106113581516227, 3.0711887359410572, 3.0265337603665823, 3.0010159426160987, 2.9491757724802428, 2.9118234898106965, 1.5172059382470031, 0.6796812756864266, 0.33480708967672684, 0.36265212997447266, 0.6501123355299889, 0.4465067413985092, 0.6237423478117559, 0.41925103084249377, 0.33586065269823523, 0.5640270589002103, 0.3228923562046965, 0.5700749201058536, 0.4840600720652139};
-
-	vector<double> tttt(20);
-	for(int i=0; i<20; i++) tttt[i] = test[i];
-
-	//cout << "Fucking test: " << f->evaluate(tttt) << endl;;
 	//return;
 	for(i=0; i<f->nDimensions(); i++)
 	{
@@ -272,15 +266,9 @@ void testMA()
 	ls1->stepLength = vector<double>(f->nDimensions(), 0.7);
 	ls2->stepLength = vector<double>(f->nDimensions(), 0.7);
 	ls3->stepLength = vector<double>(f->nDimensions(), 0.1);
-
-
-	//ma.lsPool.push_back(ls1);
-	//ma.lsPool.push_back(ls2);
-	//ma.ls = ls2;
-	//ma.ls->evaluationLimit = 10000;
-	ma.ls = ls3;
-	//ls1->evaluationLimit = 1000;
-	ls3->evaluationLimit = 200;
+	
+	ma.ls = ls1;	
+	ls1->evaluationLimit = 300;
 	
 	ma.pLS = 0.2;
 	ma.maSelectionStrategy = ma.maLSBest;

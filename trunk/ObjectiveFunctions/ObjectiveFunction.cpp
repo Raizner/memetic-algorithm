@@ -130,7 +130,7 @@ unsigned int ObjectiveFunction::nBasicFunctions()
 
 /*!
  * \brief
- * Best result so far.
+ * Best fitness value so far.
  * 
  * \returns
  * Best objective value obtained.
@@ -164,16 +164,59 @@ vector<double> ObjectiveFunction::bestSolution()
 	return bestSol;
 }
 
+/*!
+ * \brief
+ * Evaluate the fitness value
+ * 
+ * \returns
+ * Fitness value
+ *  
+ * \remarks
+ * Virtual function, to be implemented by subclass
+ * 
+ * \see
+ * ObjectiveFunction::evaluate()
+ */
 double ObjectiveFunction::evaluate_(vector<double>& x)
 {
 	return 0.0;
 }
 
+/*!
+ * \brief
+ * Calculate the gradient vector
+ * 
+ * \returns
+ * Gradient vector
+ *  
+ * \remarks
+ * Virtual function, to be implemented by subclass, finite differencing is used by default
+ * 
+ * \see
+ * ObjectiveFunction::gradient()
+ */
 vector<double> ObjectiveFunction::gradient_(vector<double>& x)
 {
-	return vector<double>(x.size(), 0.0);
+	return finiteDifference(x);
 }
 
+/*!
+ * \brief
+ * Check if the given solution is feasible, used for constrained objective function
+ * 
+ * \returns
+ * 0 if the solution is <b>feasible</b>, otherwise returns the number of violated constraints 
+ *  
+ * \remarks
+ * Virtual function, to be implemented by subclass, perform bound checking by default;
+ * 
+ * \see
+ * ObjectiveFunction::gradient()
+ */
+int ObjectiveFunction::isInfeasible(vector<double>& x)
+{
+	if (isInBound(x)) return 0; else return 1;
+}
 /*!
  * \brief
  * Implementation of the finite differencing method  to calculate the 1st order derivative.
@@ -267,8 +310,8 @@ double ObjectiveFunction::evaluate( vector<double>& x )
 {
 	// increase the number of evaluations
 	nEvaluations++;
-	// bound checking
-	if (!isInBound(x)) return INT_MIN * minimaxi;
+	// feasibility checking
+	if (isInfeasible(x)) return 1.0 * INT_MIN * minimaxi;
 
 	// everything's ok, let's evaluate the fitness of x
 	// translate it first
