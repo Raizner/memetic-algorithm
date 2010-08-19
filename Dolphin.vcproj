@@ -689,6 +689,42 @@
 					>
 				</File>
 			</Filter>
+			<Filter
+				Name="RealWorldProblems"
+				>
+				<File
+					RelativePath=".\RealWorldProblems\FLennardJones.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\RealWorldProblems\FLennardJones.h"
+					>
+				</File>
+				<File
+					RelativePath=".\RealWorldProblems\FOrthodontist.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\RealWorldProblems\FOrthodontist.h"
+					>
+				</File>
+				<File
+					RelativePath=".\RealWorldProblems\FOss2.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\RealWorldProblems\FOss2.h"
+					>
+				</File>
+				<File
+					RelativePath=".\RealWorldProblems\FTersoff.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\RealWorldProblems\FTersoff.h"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<File
 			RelativePath=".\ReadMe.txt"

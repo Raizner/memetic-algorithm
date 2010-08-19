@@ -95,7 +95,7 @@ void LocalSearch_DFP::lnsrch(vector<double> &xold, const double fold, vector<dou
 double LocalSearch_DFP::dfpmin(vector<double>& p)
 {
 	const int ITMAX = 200;
-	const double EPS = 1e-40;
+	//const double EPS = 1e-40;
 	const double TOLX = 4*EPS, STPMX=100.0;
 	bool check;
 	int i,its,j;

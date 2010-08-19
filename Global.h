@@ -19,6 +19,10 @@ using namespace std;
 #define MAX(x,y) ((x)>(y))?(x):(y)
 #define MIN(x,y) ((x)<(y))?(x):(y)
 #define PI acos(-1.0)
+#define RP(i,n) for(i=0; i<(n); i++)
+#define FR(i,a,b) for(i=(a); i<=(b); i++)
+#define SQR(x) (x)*(x)
+#define EPS 1e-9
 
 #ifdef WIN32
 #pragma warning(disable: 4786 4267)

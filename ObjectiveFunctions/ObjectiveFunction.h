@@ -61,6 +61,7 @@ public:
 	vector<double> bestSolution();
 
 	bool isInBound( vector<double> x);
+	virtual int isInfeasible( vector<double>& x);
 
 public:
 	unsigned int nEvaluations; /* number of evaluations */	
@@ -76,10 +77,12 @@ public:
 
 	string outputFile;
 	Statistics* statModule;
+	
 
 protected:
 	virtual double evaluate_( vector<double>& x );
 	virtual vector<double> gradient_( vector<double>& x );
+	
 	vector<double> finiteDifference( vector<double>& x );
 	void initialize();
 };
