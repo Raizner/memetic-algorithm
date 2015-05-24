@@ -1,0 +1,1 @@
+This is a Memetic Algorithm package implemented using C++. The design aims for high performance speed. The package works also as a foundation class library, supporting the implementation many variants of Memetic and Evolutionary Algorithms, those including multi-meme, multi-population, multi-coding EAs/MAs.
